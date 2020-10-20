@@ -33,5 +33,7 @@ class UzytkownikMenedzer
     void wczytajUzytkownikowZPliku();
     void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
+    int pobierzIdZalogowanegoUzytkownika();
+    void ustawIdZalogowanegoUzytkownika(int wyzerowaneID);
 };
 #endif
