@@ -59,7 +59,7 @@ int main()
             switch (wybor)
             {
             case '1':
-                ksiazkaAdresowa.dodajAdresata(ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika());
+                ksiazkaAdresowa.dodajAdresata();
                 //ksiazkaAdresowa.wypiszWszystkichAdresatow();
                 break;
             case '2':

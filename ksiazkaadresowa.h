@@ -13,7 +13,9 @@ class KsiazkaAdresowa
 {
     UzytkownikMenedzer uzytkownikMenedzer;
     WyswietlanieMenu wyswietlanieMenu;
-    AdresatMenedzer adresatMenedzer;
+
+    AdresatMenedzer *adresatMenedzer;
+
 public:
     void rejestracjaUzytkownika();
     void logowanieUzytkownika();
@@ -21,15 +23,21 @@ public:
     void wypiszWszystkichAdresatow();
     void zmianaHaslaZalogowanegoUzytkownika();
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer (nazwaPlikuZUzytkownikami) {
-   uzytkownikMenedzer.wczytajUzytkownikowZPliku();
-   adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+
+   //adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+   adresatMenedzer= NULL;
     };
+    ~KsiazkaAdresowa()
+    {
+        delete adresatMenedzer;
+        adresatMenedzer= NULL;
+    }
     int pobierzIdZalogowanegoUzytkownika();
     void ustawIdZalogowanegoUzytkownika(int wyzerowaneID);
     char wybierzOpcjeZMenuGlownego();
     char wybierzOpcjeZMenuUzytkownika();
 
-   int dodajAdresata(int idZalogowanegoUzytkownika);
+   int dodajAdresata();
    void wyswietlWszystkichAdresatow();
 };
 

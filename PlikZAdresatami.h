@@ -21,6 +21,7 @@ class PlikZAdresatami
 
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    int idOstatniegoAdresata;
 
     //const string nazwaPlikuZUzytkownikami; //stala w naszym programie
 
@@ -33,9 +34,12 @@ public:
     PlikZAdresatami()
     {
         nazwaPlikuZAdresatami = "Adresaci.txt";
+
     }
     void dopiszAdresataDoPliku(Adresat adresat);
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci, int idZalogowanegoUzytkownika);
+    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    void ustawIdOstatniegoAdresata (int IdOstatniegoAdresata);
+    int pobierzIdOstatniegoAdresata();
 
 
     //PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI):nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};

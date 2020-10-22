@@ -14,12 +14,14 @@ using namespace std;
 
 class AdresatMenedzer
 {
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
 
     vector <Adresat> adresaci;
     int idUsunietegoAdresata;
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
+    Adresat podajDaneNowegoAdresata();
     string wczytajLinie();
     void wyswietlDaneAdresata(Adresat adresat);
+
 
 
     PlikZAdresatami plikZAdresatami;
@@ -28,16 +30,16 @@ class AdresatMenedzer
  public:
 
 
-    int idOstatniegoAdresata;
-    int dodajAdresata(int idZalogowanegoUzytkownika);
+
+    void dodajAdresata();
     void wypiszWszystkichAdresatow();
     void wyswietlWszystkichAdresatow();
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    //int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     //int wczytajAdresatowZalogowanegoUzytkownikaZPliku( int idZalogowanegoUzytkownika);
-    AdresatMenedzer ()
+    AdresatMenedzer (int idZalogowanegoUzytkownika): ID_ZALOGOWANEGO_UZYTKOWNIKA (idZalogowanegoUzytkownika)
     {
-       idOstatniegoAdresata=0;
-       idUsunietegoAdresata=0;
+        adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+        idUsunietegoAdresata=0;
     }
 
     //UzytkownikMenedzer (string nazwaPlikuZUzytkownikami):plikzUzytkownikami (nazwaPlikuZUzytkownikami) {
