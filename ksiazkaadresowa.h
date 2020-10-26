@@ -13,6 +13,7 @@ class KsiazkaAdresowa
 {
     UzytkownikMenedzer uzytkownikMenedzer;
     WyswietlanieMenu wyswietlanieMenu;
+    string nazwaPlikuZAdresatami;
 
     AdresatMenedzer *adresatMenedzer;
 
@@ -22,8 +23,8 @@ public:
     void wypiszWszystkichUzytkownikow();
     void wypiszWszystkichAdresatow();
     void zmianaHaslaZalogowanegoUzytkownika();
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami) : uzytkownikMenedzer (nazwaPlikuZUzytkownikami) {
-
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string NAZWAPLIKUZADRESATAMI) : uzytkownikMenedzer (nazwaPlikuZUzytkownikami) {
+    nazwaPlikuZAdresatami=NAZWAPLIKUZADRESATAMI;
    //adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
    adresatMenedzer= NULL;
     };
@@ -39,6 +40,10 @@ public:
 
    int dodajAdresata();
    void wyswietlWszystkichAdresatow();
+   void wyszukajAdresatowPoImieniu();
+   void wyszukajAdresatowPoNazwisku();
+   void usunAdresata();
+   void edytujAdresata();
 };
 
 #endif

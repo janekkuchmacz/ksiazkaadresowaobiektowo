@@ -7,21 +7,27 @@
 
 #include "adresat.h"
 #include "MetodyPomocnicze.h"
-
+# include "PlikTekstowy.h"
 
 using namespace std;
 
-class PlikZAdresatami
+class PlikZAdresatami: public PlikTekstowy
 {
 
-    string nazwaPlikuZAdresatami;
+    //const string nazwaPlikuZAdresatami;
+    string nazwaTymczasowegoPlikuZAdresatami;
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
-    bool czyPlikJestPusty(fstream &plikTekstowy);
+    //bool czyPlikJestPusty(fstream &plikTekstowy);
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     int idOstatniegoAdresata;
+    void usunPlik(string nazwaPlikuZRozszerzeniem);
+    void zmienNazwePliku(string staraNazwa, string nowaNazwa);
+    int pobierzZPlikuIdOstatniegoAdresata();
+    void edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
+
 
     //const string nazwaPlikuZUzytkownikami; //stala w naszym programie
 
@@ -30,16 +36,28 @@ class PlikZAdresatami
     //string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     //Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 public:
-
-    PlikZAdresatami()
+    PlikZAdresatami(string nazwaPliku) : PlikTekstowy(nazwaPliku)
     {
-        nazwaPlikuZAdresatami = "Adresaci.txt";
+     nazwaTymczasowegoPlikuZAdresatami= "Adresaci_tymczasowo.txt";
+    }
+    /*PlikZAdresatami(string NAZWAPLIKUZADRESATAMI):nazwaPlikuZAdresatami (NAZWAPLIKUZADRESATAMI)
+    {
+        nazwaTymczasowegoPlikuZAdresatami= "Adresaci_tymczasowo.txt";
 
     }
+    */
     void dopiszAdresataDoPliku(Adresat adresat);
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     void ustawIdOstatniegoAdresata (int IdOstatniegoAdresata);
     int pobierzIdOstatniegoAdresata();
+    int zwrocNumerLiniiSzukanegoAdresata(int idAdresata);
+    //void usunWybranaLinieWPliku(int numerUsuwanejLinii);
+    void usunWybranegoAdresataZPliku(int idAdresata);
+    void podajIUstawIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(int idUsunietegoAdresata);
+    void zaktualizujDaneWybranegoAdresata(Adresat adresat);
+    void edycjaDanychWybranegoAdresata(Adresat adresat);
+
+
 
 
     //PlikZUzytkownikami(string NAZWAPLIKUZUZYTKOWNIKAMI):nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};

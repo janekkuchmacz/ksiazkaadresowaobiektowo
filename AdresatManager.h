@@ -21,6 +21,8 @@ class AdresatMenedzer
     Adresat podajDaneNowegoAdresata();
     string wczytajLinie();
     void wyswietlDaneAdresata(Adresat adresat);
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
+    int podajIdWybranegoAdresata();
 
 
 
@@ -34,13 +36,19 @@ class AdresatMenedzer
     void dodajAdresata();
     void wypiszWszystkichAdresatow();
     void wyswietlWszystkichAdresatow();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    char wybierzOpcjeZMenuEdycja();
     //int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
     //int wczytajAdresatowZalogowanegoUzytkownikaZPliku( int idZalogowanegoUzytkownika);
-    AdresatMenedzer (int idZalogowanegoUzytkownika): ID_ZALOGOWANEGO_UZYTKOWNIKA (idZalogowanegoUzytkownika)
+
+    AdresatMenedzer (int idZalogowanegoUzytkownika, string nazwaPlikuZAdresatami): ID_ZALOGOWANEGO_UZYTKOWNIKA (idZalogowanegoUzytkownika), plikZAdresatami (nazwaPlikuZAdresatami)
     {
         adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
         idUsunietegoAdresata=0;
     }
+    void usunAdresata();
+    void edytujAdresata ();
 
     //UzytkownikMenedzer (string nazwaPlikuZUzytkownikami):plikzUzytkownikami (nazwaPlikuZUzytkownikami) {
     //idZalogowanegoUzytkownika=0;

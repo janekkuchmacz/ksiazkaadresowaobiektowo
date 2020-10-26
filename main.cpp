@@ -1,12 +1,12 @@
 #include <iostream>
 
-#include "ksiazkaadresowa.h">
+#include "ksiazkaadresowa.h"
 
 using namespace std;
 
 int main()
 {
-    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy2.txt");
+    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy2.txt", "Adresaci.txt");
     //ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     //ksiazkaAdresowa.rejestracjaUzytkownika();
 
@@ -60,23 +60,23 @@ int main()
             {
             case '1':
                 ksiazkaAdresowa.dodajAdresata();
-                //ksiazkaAdresowa.wypiszWszystkichAdresatow();
                 break;
             case '2':
-                //wyszukajAdresatowPoImieniu(adresaci);
+                ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                 break;
             case '3':
-                //wyszukajAdresatowPoNazwisku(adresaci);
+                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                 break;
             case '4':
                 ksiazkaAdresowa.wyswietlWszystkichAdresatow();
                 break;
             case '5':
+                ksiazkaAdresowa.usunAdresata();
                 //idUsunietegoAdresata = usunAdresata(adresaci);
                 //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
                 break;
             case '6':
-                //edytujAdresata(adresaci);
+                ksiazkaAdresowa.edytujAdresata();
                 break;
             case '7':
                 ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
