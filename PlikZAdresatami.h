@@ -21,12 +21,14 @@ class PlikZAdresatami: public PlikTekstowy
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 
     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+
     int idOstatniegoAdresata;
+    int idPrzedOstatniegoAdresata;
     void usunPlik(string nazwaPlikuZRozszerzeniem);
     void zmienNazwePliku(string staraNazwa, string nowaNazwa);
     int pobierzZPlikuIdOstatniegoAdresata();
     void edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami);
+
 
 
     //const string nazwaPlikuZUzytkownikami; //stala w naszym programie
@@ -36,9 +38,11 @@ class PlikZAdresatami: public PlikTekstowy
     //string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     //Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 public:
+    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
     PlikZAdresatami(string nazwaPliku) : PlikTekstowy(nazwaPliku)
     {
      nazwaTymczasowegoPlikuZAdresatami= "Adresaci_tymczasowo.txt";
+     idPrzedOstatniegoAdresata=0;
     }
     /*PlikZAdresatami(string NAZWAPLIKUZADRESATAMI):nazwaPlikuZAdresatami (NAZWAPLIKUZADRESATAMI)
     {
@@ -56,6 +60,7 @@ public:
     void podajIUstawIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(int idUsunietegoAdresata);
     void zaktualizujDaneWybranegoAdresata(Adresat adresat);
     void edycjaDanychWybranegoAdresata(Adresat adresat);
+    void ustawIdPrzedOstatniegoAdresata();
 
 
 

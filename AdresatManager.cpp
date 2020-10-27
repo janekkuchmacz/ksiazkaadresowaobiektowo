@@ -189,6 +189,7 @@ void AdresatMenedzer::usunAdresata()
             {
                 //numerLiniiUsuwanegoAdresata = plikZAdresatami.zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
                 //plikZAdresatami.usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
+                plikZAdresatami.ustawIdPrzedOstatniegoAdresata();
                 plikZAdresatami.usunWybranegoAdresataZPliku(idUsuwanegoAdresata);
                 vector <Adresat>::iterator itr = adresaci.begin()+i;
                 adresaci.erase(itr);

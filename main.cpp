@@ -91,3 +91,63 @@ int main()
 
     return 0;
 }
+
+/*#include "PlikZAdresatami.h"
+int main ()
+{
+    int idOstatniegoAdresata = 0;
+    int idPrzedOstatniegoAdresata=0;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    string daneOstaniegoAdresataWPliku = "";
+    string danePrzedOstaniegoAdresataWPliku="";
+    fstream plikTekstowy;
+    plikTekstowy.open("Adresaci.txt", ios::in);
+    PlikZAdresatami plikZAdresatami ("Adresaci.txt");
+
+    int itr=0;
+    int itr2=0;
+
+    if (plikTekstowy.good() == true)
+    {
+        while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {itr++;}
+            daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
+            plikTekstowy.close();
+    }
+    else
+        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
+
+    if (daneOstaniegoAdresataWPliku != "")
+    {
+        idOstatniegoAdresata = plikZAdresatami.pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+    }
+    cout<<idOstatniegoAdresata<<endl;
+    ////////////
+    plikTekstowy.open("Adresaci.txt", ios::in);
+    if (plikTekstowy.good() == true)
+    {
+        while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
+            {
+            itr2++;
+                if (itr2==itr-1)
+                {
+                  danePrzedOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
+                }
+            }
+            plikTekstowy.close();
+    }
+    else
+        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
+
+    if (danePrzedOstaniegoAdresataWPliku != "")
+    {
+        idPrzedOstatniegoAdresata = plikZAdresatami.pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(danePrzedOstaniegoAdresataWPliku);
+    }
+    else
+    {
+        idPrzedOstatniegoAdresata = 0;
+    }
+    cout<<idPrzedOstatniegoAdresata<<endl;
+}
+*/
+
+
